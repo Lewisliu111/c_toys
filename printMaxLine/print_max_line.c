@@ -12,18 +12,18 @@ int main()
 	int len;         //当前行的长度
 	int max;         //当前发现最大行的最大长度
 	char line[MAXLINE];   //当前的输入行
-	char lonGest[MAXLINE];  //目前保存最大行
+	char longest[MAXLINE];  //目前保存最大行
 
 	max = 0;
 	
 	while ((len = Getline(line, MAXLINE)) > 0) { //循环读入行
 		if (len > max) {
 			max = len;
-			copy(lonGest, line);
+			copy(longest, line);
 		}
 
 		if (max > 0) {
-			printf("the max lonGest is %s", lonGest);
+			printf("the max lonGest is %s", longest);
 		}
 
 		return 0;
@@ -41,8 +41,9 @@ int Getline(char s[], int maxline)
 		s[i] = c;
 	}
 
-	if (c == '\n')
+	if (c == '\n'){
 		s[i++] = c;
+	}
 	s[i] = '\0';
 	return i;
 }
